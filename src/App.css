@@ -16,6 +16,16 @@
 
 }
 
+.app-post {
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.app-post-right {
+  margin-left: 20px;
+}
+
 .app {
   background-color: #fafafa;
 
