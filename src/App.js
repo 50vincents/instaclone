@@ -197,14 +197,14 @@ function App() {
             posts.map(({id, post}) => {
               // id only re-renders new posts
               return (
-                <Post key={id} username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
+                <Post key={id} postId={id} username={post.username} user={user} caption={post.caption} imageUrl={post.imageUrl} />
               )
             })
           }
         </div>
         <div className="app-post-right">
           <InstagramEmbed
-            url='https://instagr.am/p/Zw9o4/'
+            url='https://www.instagram.com/p/BFxT6Q_yo1H/'
             maxWidth={320}
             hideCaption={false}
             containerTagName='div'
