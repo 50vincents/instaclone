@@ -1,8 +1,8 @@
-import React, {useState, useEffect} from 'react'
-import "../Post.css";
-import Avatar from "@material-ui/core/Avatar"
-import { db } from '../firebase';
+import React, {useState, useEffect} from 'react';
+import Avatar from "@material-ui/core/Avatar";
+import { db } from '../util/firebase';
 import firebase from 'firebase';
+import "../styles/Post.css";
 
 // collection of posts, each post is a document
 function Post({ postId, user, username, caption, imageUrl }) {

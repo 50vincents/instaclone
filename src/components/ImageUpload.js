@@ -1,8 +1,8 @@
-import React, {useState} from 'react'
+import React, {useState} from 'react';
 import { Button } from '@material-ui/core';
-import { db, storage } from '../firebase'
+import { db, storage } from '../util/firebase';
 import firebase from 'firebase';
-import '../ImageUpload.css';
+import '../styles/ImageUpload.css';
 
 function ImageUpload({username}) {
   const [caption, setCaption] = useState('');

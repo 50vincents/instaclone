@@ -38,3 +38,8 @@
   display: flex;
   flex-direction: column;
 }
+
+.app-default {
+  text-align: center;
+  padding-bottom: 30px;
+}

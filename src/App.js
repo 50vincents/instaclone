@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Post from './components/Post';
-import { db, auth } from './firebase'
+import { db, auth } from './util/firebase'
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Input } from '@material-ui/core';
@@ -223,7 +223,7 @@ function App() {
       { user?.displayName ? (
         <ImageUpload username={user.displayName}/>
       ) : (
-        <h3>Login to Upload</h3>
+        <h3 className="app-default"><Button onClick={() => setOpenSignIn(true)}>Login to upload</Button></h3>
       )}    
     
 
