@@ -5,6 +5,7 @@ import { db, auth } from './firebase'
 import Modal from '@material-ui/core/Modal';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button, Input } from '@material-ui/core';
+import ImageUpload from './components/ImageUpload';
 
 
 function getModalStyle() {
@@ -73,7 +74,7 @@ function App() {
   // Run piece of code based on specific condition
   useEffect(() => {
     // every time a new post is added, this code is fired -> picture of collection
-    db.collection('posts').onSnapshot(snapshot => {
+    db.collection('posts').orderBy('timestamp','desc').onSnapshot(snapshot => {
       // set our posts to documents/post in snapshot
       setPosts(snapshot.docs.map(doc => ({
         id: doc.id,
@@ -180,19 +181,15 @@ function App() {
           src="https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png"
           alt=""
         />
-      </div>
-
-      {user ? (
+         {user ? (
         <Button onClick={() => auth.signOut()}>Logout</Button>
-      ) : (
-        <div className="app-loginContainer">
-          <Button onClick={() => setOpen(true)}>Sign Up</Button>
-          <Button onClick={() => setOpenSignIn(true)}>Sign In</Button>
-        </div>
-
-      )}
-
-      <h1>BUILDING NA INSTAGRAM CLONE</h1>
+        ) : (
+          <div className="app-loginContainer">
+            <Button onClick={() => setOpen(true)}>Sign Up</Button>
+            <Button onClick={() => setOpenSignIn(true)}>Sign In</Button>
+          </div>
+        )}
+      </div>
 
       {
         posts.map(({id, post}) => {
@@ -202,6 +199,12 @@ function App() {
           )
         })
       }
+
+      { user?.displayName ? (
+        <ImageUpload username={user.displayName}/>
+      ) : (
+        <h3>Login to Upload</h3>
+      )}    
     
 
     </div>
