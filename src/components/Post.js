@@ -2,6 +2,7 @@ import React from 'react'
 import "../Post.css";
 import Avatar from "@material-ui/core/Avatar"
 
+// collection of posts, each post is a document
 function Post({ username, caption, imageUrl }) {
   return (
     <div className="post">
